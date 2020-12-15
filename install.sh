@@ -42,16 +42,35 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 # Setup the ~/.vimrc (WARN: This will overwrite any existing contents)
 cat > ~/.vimrc <<- EOM
 execute pathogen#infect()
-syntax on
-set number
-set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set autoindent
+
+" Common settings
+set expandtab                       " tabs are spaces
+set tabstop=2                       " number of visual spaces per TAB
+set softtabstop=2                   " number of spaces in tab when editing
+set shiftwidth=2                    " Spaces to use for autoindenting
+set breakindent                     " Wrap lines at same indent level
+set autoindent                      " always turn on indentation
 set smartindent
-set showmatch
+set backspace=indent,eol,start      " proper backspace behavior
+
+syntax on
 autocmd BufWritePre * %s/\s\+$//e
+set number
+set showcmd                         " show command in bottom bar
+set cursorline                      " highlight current line
+set wildmenu                        " visual autocomplete for command menu
+set wildmode=longest,full           " Enable file autocomplete in command mode
+set lazyredraw                      " redraw only when we need to.
+set showmatch                       " highlight matching [{()}]
+set scrolloff=15                    " always leave 15 spaces when scrolling
+set linebreak                       " don't wrap words
+set timeoutlen=300 ttimeoutlen=10   " Eliminate delay when changing mode
+set splitbelow                      " horizontal split opens below
+set splitright                      " Vertical split opens to the right
+set incsearch                       " search as characters are entered
+set hlsearch                        " highlight matches
+set signcolumn=yes                  " Always show the sign column
+
 filetype plugin indent on
 EOM
 
