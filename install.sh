@@ -78,5 +78,6 @@ EOM
 cd ~/.vim/bundle && \
 git clone https://github.com/tpope/vim-sensible.git
 git clone https://github.com/perservim/nerdtree.git
+git clone https://github.com/junegunn/rainbow_parentheses.vim.git
 cd -
 echo "...done"
