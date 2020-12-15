@@ -3,7 +3,7 @@ This script will quickly setup your development environment (terminal)
 
 Simple run
 ```
-> .install.sh
+> ./install.sh
 ```
 
 And let the magic flow!
