@@ -39,6 +39,9 @@ echo "Installing the pathogen plugin manager and setting up ~/.vimrc..."
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
+# Install gruvbox (colorscheme)
+git clone https://github.com/morhetz/gruvbox.git ~/.vim/bundle/gruvbox
+
 # Setup the ~/.vimrc (WARN: This will overwrite any existing contents)
 cat > ~/.vimrc <<- EOM
 execute pathogen#infect()
@@ -70,6 +73,9 @@ set splitright                      " Vertical split opens to the right
 set incsearch                       " search as characters are entered
 set hlsearch                        " highlight matches
 set signcolumn=yes                  " Always show the sign column
+
+autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark                 " Setting dark mode
 
 filetype plugin indent on
 EOM
